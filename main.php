@@ -2,31 +2,40 @@
     session_start();
     include 'includes/common.php';
 
-    // $cur_id = $_SESSION['user_id'];
+    $email = $_SESSION["email"];
+    $status = getSingleValue($conn, "SELECT status FROM tbl_users WHERE email=?", [$email]);
+    $userId = getSingleValue($conn, "SELECT id FROM tbl_users WHERE email=?", [$email]);
+    $text = getMultiValue($conn, "SELECT * FROM tbl_text WHERE userId=?", [$userId]);
 
-    // $stmt = $conn->prepare("SELECT t1.*, t2.done_count FROM (SELECT * FROM tbl_todolist WHERE user_id = '$cur_id') t1 LEFT JOIN (SELECT list_id, COUNT(is_done) AS done_count FROM tbl_tasklist WHERE is_done = '0' GROUP BY list_id) t2 ON t1.id = t2.list_id");
-    // $stmt->execute();
+    function getSingleValue($conn, $sql, $parameters)
+    {
+        $q = $conn->prepare($sql);
+        $q->execute($parameters);
+        return $q->fetchColumn();
+    }
 
-    // $qr_result = $stmt->fetchAll();
-
-    // $stmt1 = $conn->prepare("SELECT * FROM (SELECT tbl_tasklist.*, tbl_todolist.name AS list_name FROM tbl_tasklist LEFT JOIN tbl_todolist ON tbl_tasklist.list_id = tbl_todolist.id WHERE is_important = '1') t1 WHERE user_id = '$cur_id'");
-    // $stmt1->execute();
-
-    // $qr_important = $stmt1->fetchAll();
+    function getMultiValue($conn, $sql, $parameters)
+    {
+        $q = $conn->prepare($sql);
+        $q->execute($parameters);
+        return $q->fetch();
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection"/>
-
-    <!-- customize css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/materialize-stepper@2.1.4/materialize-stepper.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link
     href="assets/css/style.css"
+    rel="stylesheet"
+    />
+    <link
+    href="assets/css/ratestar.css"
     rel="stylesheet"
     />
 
@@ -37,10 +46,10 @@
     <link rel="icon" href="assets/images/favicon.png" type="image/gif" sizes="16x16">
 </head>
 <body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/debate.js"></script>
+    <script type="text/javascript" src="assets/js/timer.js"></script>
+    <script type="text/javascript" src="assets/js/ratestar.js"></script>
 
 
     <ul id="slide-out" class="side-nav fixed">
@@ -56,26 +65,7 @@
                 <a href="#"><span class="white-text email"> <?php echo $_SESSION["email"]; ?> </span></a>
             </div>
         </li>
-        
-        <!-- <li id="important"><a class="waves-effect" href="#"><i class="material-icons">star_border</i>Important</a></li>
-        <li><div class="divider"></div></li>
-        <li><a class="subheader">Todo-List</a></li>
-        <div id="todolists">
-            <?php foreach($qr_result as $row){ ?>
-                <li data-value="<?php echo $row['id']; ?>">
-                    <a class="waves-effect" href="#">
-                        <i class="material-icons">playlist_add_check</i>
-                        <?php echo $row['name']; ?>
-                        <?php if(!empty($row['done_count'])) {?>
-                            <span class="badge"><?php echo $row['done_count']; ?></span>
-                        <?php }else{?>
-                            <span class="badge"><?php echo ""; ?></span>
-                        <?php }?>
-                    </a>
-                </li>
-            <?php }?>
-        </div> -->
-        <!-- <li><a class="waves-effect it-text modal-trigger" href="#modal1"><i class="material-icons">add</i>New List</a></li> -->
+
         <div style="padding: 40px 20px 10px 20px;">
             <p style="line-height: 2; text-indent: 20px;font-style: italic;">
                 "<b>Debate</b> is a valuable activity for students of all skill levels. Debate teaches useful skills for other academic pursuits and life more generally. ... They learn to explain their own ideas and assess different viewpoints, whether in a debate round, a political discussion, a classroom, or a written essay."
@@ -89,8 +79,177 @@
 
     <main class="main-body">
         <div class="container">
-            <div style="border: 1px solid red;">
-                <h1>Hello World!<?php echo $_SESSION["status"]; ?></h1>
+            <div style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
+                <img src="assets/images/logo.png" style="width: 200px; height: auto;" />
+            </div>
+            <div class="card" style="border-radius: 30px">
+                <div class="card-content">
+                    <?php if($status == 0) { ?>
+                        <h5>Your Debate is not ready yet. Contact the professor for more information.</h5>
+                    <?php } else { ?>
+                        <form action="controller/rating_controller.php" method="POST">
+                            <ul class="stepper parallel horizontal">
+                            <li class="step active">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class='form-field'>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">When you and the other user are ready, press the button ready</p>
+                                        </div>
+                                    </div>
+                                    <div class="step-actions" style="justify-content: center">
+                                        <button class="waves-effect waves-dark btn next-step" style="background-color: #A5C931">READY</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class='form-field'>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">Press START button to start the Debate.</p>
+                                        </div>
+                                    </div>
+                                    <div class="step-actions" style="justify-content: center;">
+                                        <button class="waves-effect waves-dark btn next-step" style="background-color: #FF7F27" onClick="startTimer(1)">START</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class='form-field'>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">Talk about "<?php echo $text['text1']; ?>"</p>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">When you finish, press NEXT</p>
+                                            <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer1" />
+                                        </div>
+                                    </div>
+                                    <div class="step-actions" style="justify-content: center;">
+                                        <button class="waves-effect waves-dark btn next-step" onClick="stopTimers()">NEXT</button>
+                                        <button class="waves-effect waves-dark btn-flat previous-step" onClick="stopTimers()" style="border: 1px solid #FF7F27">BACK</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                <div class="row">
+                                    <div class='form-field'>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Now listen to the other user.</p>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">When he/she finishes talking, press NEXT</p>
+                                        <div style="text-align: center; margin-top: 30px; margin-bottom: 60px;">
+                                            <img src="assets/images/7-512.png" style="width: 80px; height: auto;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-actions" style="justify-content: center;">
+                                    <button class="waves-effect waves-dark btn next-step" onClick="startTimer(2)">NEXT</button>
+                                    <button class="waves-effect waves-dark btn-flat previous-step" onClick="stopTimers()" style="border: 1px solid #FF7F27">BACK</button>
+                                </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class='form-field'>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">Talk about "<?php echo $text['text2']; ?>"</p>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">When you finish, press NEXT</p>
+                                            <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer2" />
+                                        </div>
+                                    </div>
+                                    <div class="step-actions" style="justify-content: center;">
+                                        <button class="waves-effect waves-dark btn next-step" onClick="stopTimers()">NEXT</button>
+                                        <button class="waves-effect waves-dark btn-flat previous-step" onClick="stopTimers()" style="border: 1px solid #FF7F27">BACK</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                <div class="row">
+                                    <div class='form-field'>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Now listen to the other user.</p>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">When he/she finishes talking, press NEXT</p>
+                                        <div style="text-align: center; margin-top: 30px; margin-bottom: 60px;">
+                                            <img src="assets/images/7-512.png" style="width: 80px; height: auto;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-actions" style="justify-content: center;">
+                                    <button class="waves-effect waves-dark btn next-step">NEXT</button>
+                                    <button class="waves-effect waves-dark btn-flat previous-step" style="border: 1px solid #FF7F27">BACK</button>
+                                </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                <div class="row">
+                                    <div class='form-field'>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Say if you agree or not.</p>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">When you finish, press NEXT</p>
+                                    </div>
+                                </div>
+                                <div class="step-actions" style="justify-content: center;">
+                                    <button class="waves-effect waves-dark btn next-step">NEXT</button>
+                                    <button class="waves-effect waves-dark btn-flat previous-step" style="border: 1px solid #FF7F27">BACK</button>
+                                </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                <div class="row">
+                                    <div class='form-field'>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Now you are goint to talk about the same text.</p>
+                                        <p class="flow-text" style="text-align: center; margin-top: 30px;">When you and other user are ready, press NEXT</p>
+                                    </div>
+                                </div>
+                                <div class="step-actions" style="justify-content: center">
+                                    <button class="waves-effect waves-dark btn next-step" style="background-color: #A5C931" onClick="startTimer(3)">READY</button>
+                                </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class='form-field'>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">Talk about "<?php echo $text['text3']; ?>"</p>
+                                            <p class="flow-text" style="text-align: center; margin-top: 30px;">When you finish, press NEXT</p>
+                                            <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer3" />
+                                        </div>
+                                    </div>
+                                    <div class="step-actions" style="justify-content: center;">
+                                        <button class="waves-effect waves-dark btn next-step" onClick="stopTimers()">NEXT</button>
+                                        <button class="waves-effect waves-dark btn-flat previous-step" onClick="stopTimers()" style="border: 1px solid #FF7F27">BACK</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-content">
+                                <div class="row">
+                                    <div class='form-field' style="text-align: center">
+                                        <span class="flow-text" style="text-align: center; margin-top: 30px;">This is the end of debate.</span>
+                                        <br>
+                                        <span class="flow-text" style="text-align: center; margin-top: 30px;">Rate the debate ,and press FINISH.</span>
+                                        <br>
+                                        <span class="flow-text" style="text-align: center; margin-top: 30px;">Hope to see you soon</span>
+                                        <p class="counterW" style="text-align: center; margin-top: 30px">score: <span class="scoreNow">3</span> out of <span>5</span></p>
+                                        <ul class="ratingW">
+                                        <li class="on"><a href="javascript:void(0);"><div class="star"></div></a></li>
+                                        <li class="on"><a href="javascript:void(0);"><div class="star"></div></a></li>
+                                        <li class="on"><a href="javascript:void(0);"><div class="star"></div></a></li>
+                                        <li><a href="javascript:void(0);"><div class="star"></div></a></li>
+                                        <li><a href="javascript:void(0);"><div class="star"></div></a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="step-actions" style="justify-content: center;">
+                                    <button class="waves-effect waves-dark btn">FINISH</button>
+                                    <button class="waves-effect waves-dark btn-flat previous-step" style="border: 1px solid #FF7F27">BACK</button>
+                                </div>
+                                </div>
+                            </li>
+                            <input type="hidden" name="score" id="score" value="3" />
+                            </ul>
+                        </form>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </main>
