@@ -65,7 +65,7 @@ header, main, footer {
     background: #1b919b;
     padding: 10px;
     border-radius: 50%;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .btn-bk-color {

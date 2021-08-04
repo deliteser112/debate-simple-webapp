@@ -25,8 +25,8 @@
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
     <section>
         <div class="container">
-            <div style="text-align: center; margin-top: 100px; margin-bottom: 60px;">
-                <img src="assets/images/logo.png" style="width: 200px; height: auto;" />
+            <div style="text-align: center; margin-top: 150px; margin-bottom: 60px;">
+                <h1 style="font-weight:900; color: #FF7F27; font-size: 90px; font-family: sans-serif;">DEBATE</h1>
             </div>
             <form action="controller/signup_controller.php" method="POST">
                 <div class="card" style="max-width: 500px; margin: auto; margin-bottom: 100px; border-radius: 30px">
@@ -55,6 +55,11 @@
                                 <i class="material-icons prefix pf-fix">location_on</i>
                                 <input id="country" name="country" type="text" class="validate" required>
                                 <label for="country">Country</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix pf-fix">layers</i>
+                                <input id="level" name="level" type="text" class="validate" required>
+                                <label for="level">Level</label>
                             </div>
                             <!-- <div class="file-field input-field col s12" style="width:80%; margin-left:20px;">
                                 <div class="btn">

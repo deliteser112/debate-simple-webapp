@@ -210,11 +210,12 @@ $(document).ready(function() {
     if(window.innerWidth < 993 || !this.closest('ul').hasClass('horizontal')) {
        closable.stop().slideUp(300,"easeOutQuad", callback);
     } else {
-       if(order==1) {
-          closable.animate({left: '-100%'},function(){closable.css({display: 'none', left: '0%'}, callback);});
-       } else {
-          closable.animate({left: '100%'},function(){closable.css({display: 'none', left: '0%'}, callback);});
-       }
+      closable.fadeOut()
+      //  if(order==1) {
+      //     closable.animate({left: '-100%'},function(){closable.css({display: 'none', left: '100%'}, callback);});
+      //  } else {
+      //     closable.animate({left: '100%'},function(){closable.css({display: 'none', left: '100%'}, callback);});
+      //  }
     }
  };
  
@@ -223,11 +224,13 @@ $(document).ready(function() {
     if(window.innerWidth < 993 || !this.closest('ul').hasClass('horizontal')) {
        openable.slideDown(300,"easeOutQuad", callback);
     } else {
-       if(order==1) {
-          openable.css({left: '100%', display: 'block'}).animate({left: '0%'}, callback);
-       } else {
-          openable.css({left: '-100%', display: 'block'}).animate({left: '0%'}, callback);
-       }
+      // openable.slideDown(300,"easeOutQuad", callback);
+      openable.fadeIn();
+      //  if(order==1) {
+      //     openable.css({left: '100%', display: 'block'}).animate({left: '0%'}, callback);
+      //  } else {
+      //     openable.css({left: '-100%', display: 'block'}).animate({left: '0%'}, callback);
+      //  }
     }
  };
  
