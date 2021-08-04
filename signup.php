@@ -25,8 +25,8 @@
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
     <section>
         <div class="container">
-            <div style="text-align: center; margin-top: 150px; margin-bottom: 60px;">
-                <h1 style="font-weight:900; color: #FF7F27; font-size: 90px; font-family: sans-serif;">DEBATE</h1>
+            <div class="font-logo-position">
+                <h1 class="font-logo">DEBATE</h1>
             </div>
             <form action="controller/signup_controller.php" method="POST">
                 <div class="card" style="max-width: 500px; margin: auto; margin-bottom: 100px; border-radius: 30px">

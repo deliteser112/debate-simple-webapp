@@ -20,52 +20,57 @@ body {
     background-image: url(/assets/images/background.jpg);
 }
 
-header, main, footer {
+header,
+main,
+footer {
     padding-left: 300px;
 }
 
 @media only screen and (max-width : 992px) {
-    header, main, footer {
+
+    header,
+    main,
+    footer {
         padding-left: 0;
     }
 }
 
-.mr-top{
+.mr-top {
     margin-top: 10%;
 }
 
-.logo-size{
+.logo-size {
     width: 50px;
     height: auto;
     margin: 5px;
 }
 
-.logo-title{
+.logo-title {
     margin-left: 70px;
     font-size: 30px;
 }
 
-.nav-wrapper{
+.nav-wrapper {
     background-color: #26a69a;
 }
 
-.pf-fix{
+.pf-fix {
     margin-top: 15px;
     margin-left: 10px;
 }
 
-.ta-right{
+.ta-right {
     display: flex;
     justify-content: space-between;
 }
 
-.btn-logout{
+.btn-logout {
     position: absolute;
     left: 240px;
-    background: #1b919b;
     padding: 10px;
     border-radius: 50%;
     color: rgb(0, 0, 0);
+    background-color: #fff200;
 }
 
 .btn-bk-color {
@@ -76,20 +81,23 @@ header, main, footer {
     background-color: #f7ad63;
 }
 
-.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a li>a>[class*="mdi-"], .side-nav li>a>i.material-icons{
+.side-nav li>a>i,
+.side-nav li>a>[class^="mdi-"],
+.side-nav li>a li>a>[class*="mdi-"],
+.side-nav li>a>i.material-icons {
     margin: 0 10px 0 0;
 }
 
-.it-text{
+.it-text {
     font-style: italic;
 }
 
-.main-body{
+.main-body {
     position: relative;
     height: 95%;
 }
 
-.ps-card{
+.ps-card {
     position: absolute;
     max-width: 1000px;
     width: 100%;
@@ -100,44 +108,44 @@ header, main, footer {
     padding-left: 0px;
 }
 
-.task-list{
+.task-list {
     width: 100%;
     padding: 10px 100px 0px 100px;
 }
 
-.todo-title{
+.todo-title {
     color: white;
     margin-bottom: 50px;
 }
 
-.task-body{
+.task-body {
     width: 100%;
     height: 600px;
     overflow-y: auto;
 }
 
-.d-flex{
+.d-flex {
     display: flex !important;
     justify-content: space-between;
     padding: 25px 30px 15px 30px;
 }
 
-.m-flex{
+.m-flex {
     display: flex;
     padding: 25px 30px 20px 30px;
 }
 
-.ps-collapse-button{
+.ps-collapse-button {
     padding-top: 5px;
     padding-left: 20px;
 }
 
-.hamburger-menu{
+.hamburger-menu {
     color: white;
     font-size: 35px;
 }
 
-.btn-important{
+.btn-important {
     color: #1b919b;
     margin-right: 10px;
     border-radius: 50%;
@@ -145,24 +153,24 @@ header, main, footer {
     transition: all .5s;
 }
 
-.btn-important:hover{
+.btn-important:hover {
     cursor: pointer;
     background: rgb(88 134 88 / 20%);
 }
 
-.btn-delete{
+.btn-delete {
     color: #1b919b;
     padding: 5px;
     border-radius: 50%;
     transition: all .5s;
 }
 
-.btn-delete:hover{
+.btn-delete:hover {
     cursor: pointer;
     background: rgb(88 134 88 / 20%);
 }
 
-.btn-send{
+.btn-send {
     color: #1b919b;
     margin-right: 10px;
     border-radius: 5px;
@@ -170,53 +178,91 @@ header, main, footer {
     transition: all .5s;
 }
 
-.btn-send:hover{
+.btn-send:hover {
     cursor: pointer;
     background: rgb(88 134 88 / 20%);
 }
 
-.btn-send:active{
+.btn-send:active {
     background: rgb(58 66 58 / 80%);
 }
 
-.is-done{
+.is-done {
     text-decoration: line-through;
 }
 
-.r-im{
+.r-im {
     font-size: 35px;
     margin-right: 30px;
 }
 
-.i-task-title{
-    font-size:20px;
+.i-task-title {
+    font-size: 20px;
 }
 
-.i-list-title{
+.i-list-title {
     font-size: 20px;
     font-weight: bold;
     font-style: italic;
     font-family: monospace;
 }
 
-.br-card{
+.br-card {
     border-radius: 30px;
 }
 
+.btn-logout-mobile {
+    display: none;
+}
+
+.font-logo-position {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.font-logo {
+    font-weight: 900;
+    color: #FF7F27;
+    font-size: 90px;
+    font-family: sans-serif;
+}
+
 @media only screen and (max-width : 992px) {
-    header, main, footer {
+
+    header,
+    main,
+    footer {
         padding-left: 0;
     }
 
-    .ps-card{
-        width:80%;
+    .ps-card {
+        width: 80%;
         padding-right: 30px;
         left: calc(50%);
         transform: translate(-50%, 10px);
     }
 
-    .task-list{
+    .task-list {
         width: 100%;
         padding: 10px 10px 0px 10px;
+    }
+
+    .btn-logout-mobile {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 10px;
+        border-radius: 50%;
+        color: rgb(255, 255, 255);
+        background-color: #017531;
+    }
+
+    .font-logo {
+        font-size: 60px;
+    }
+
+    .font-logo-position {
+        margin-top: 100px;
     }
 }

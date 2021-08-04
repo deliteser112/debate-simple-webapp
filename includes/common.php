@@ -1,10 +1,10 @@
 <?php
 
     $servername = "localhost";
-    $username = "debateuser";
-    $password = "Deliteser112!!@";
-    // $username = "root";
-    // $password = "root";
+    // $username = "debateuser";
+    // $password = "Deliteser112!!@";
+    $username = "root";
+    $password = "root";
     $dbname = "db_debate";
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
