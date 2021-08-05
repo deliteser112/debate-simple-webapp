@@ -9,13 +9,15 @@ $text = getMultiValue($conn, "SELECT * FROM tbl_text WHERE userId=?", [$userId])
 
 $userList = getMultiRowValue($conn, "SELECT id FROM tbl_users");
 
-$userNumber = 0;
+$userNumber = getSingleValue($conn, "SELECT level FROM tbl_users WHERE email=?", [$email]);
 
-foreach ($userList as $key => $user) {
-    if ($userId == $user["id"]) {
-        $userNumber = $key + 1;
-    }
-}
+// echo $userNumber;
+
+// foreach ($userList as $key => $user) {
+//     if ($userId == $user["id"]) {
+//         $userNumber = $key + 1;
+//     }
+// }
 
 function getSingleValue($conn, $sql, $parameters)
 {
