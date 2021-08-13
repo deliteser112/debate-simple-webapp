@@ -5,7 +5,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px; ">Prueba. When you and the other user are ready, press the button ready</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px; ">Ahora es la prueba yo solo.. When you and the other user are ready, press the button ready</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center">
@@ -18,7 +18,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Press START button to start the Debate.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;">Cuando estés listo, pulsa Start.</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center;">
