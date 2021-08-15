@@ -87,7 +87,7 @@ function getMultiRowValue($conn, $sql)
             <div class="card" style="border-radius: 30px">
                 <div class="card-content">
                     <?php if ($status == 0) { ?>
-                        <h5>Your Debate is not ready yet. Contact the professor for more information.</h5>
+                        <h5>Your Debate is not ready yet. Contact the administrator for more information.</h5>
                     <?php } else { ?>
                         <?php if ($userNumber > 2) {
                             include 'groupTwo.php';
