@@ -5,7 +5,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px; ">Hello! Ahora es la prueba yo solo.. When you and the other user are ready, press the button ready</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px; ">MMM! Ahora es la prueba yo solo.. When you and the other user are ready, press the button ready</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center">
