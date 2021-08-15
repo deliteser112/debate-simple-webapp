@@ -5,7 +5,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500; "> When you and the other user are ready, press the button ready.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500; "> When you and the other user are ready, press READY.</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center">
@@ -18,7 +18,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">First he/she is going to talk about himself. When he/she finishes, press ¡START!.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">The other user will start talking first. When he/she is done, press START.</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center;">
@@ -31,8 +31,8 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Talk about "<?php echo $text['text1']; ?>"</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you finish, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Speak for 2 minutes about: <?php echo $text['text1']; ?>.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When finished, press NEXT.</p>
                         <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer1" />
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class='form-field'>
                         <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now listen to the other user.</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When he/she finishes talking, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When he/she finishes speaking, press NEXT.</p>
                         <div style="text-align: center; margin-top: 30px; margin-bottom: 60px;">
                             <img src="assets/images/7-512.png" style="width: 80px; height: auto;" />
                         </div>
@@ -65,8 +65,8 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Say if you agree or not.</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you finish, press NEXT. This is another try.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Say whether you agree or disagree with what the other user said.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When finished, press NEXT.</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center;">
@@ -80,8 +80,8 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Talk about "<?php echo $text['text2']; ?>"</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you finish, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Talk for 3 minutes about: <?php echo $text['text2']; ?>.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When finished, press NEXT.</p>
                         <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer2" />
                     </div>
                 </div>
@@ -97,7 +97,7 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now listen to the other user. When he/she finishes talking, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now listen to the other user. He is going to say whether he agrees or not with what you hava said. When he/she finishes talking, press NEXT</p>
                         <div style="text-align: center; margin-top: 30px; margin-bottom: 60px;">
                             <img src="assets/images/7-512.png" style="width: 80px; height: auto;" />
                         </div>
@@ -115,8 +115,8 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now you are goint to talk about the same text.</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you and other user are ready, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now you are going to talk about the same topic for 5 minutes.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you and the other user are ready, press READY.</p>
                     </div>
                 </div>
                 <div class="step-actions" style="justify-content: center">
@@ -129,8 +129,8 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field'>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Talk about "<?php echo $text['text3']; ?>"</p>
-                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you finish, press NEXT</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Talk for 5 minutes about: <?php echo $text['text3']; ?>.</p>
+                        <p class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">When you are done, press NEXT.</p>
                         <h4 style="text-align: center; font-weight: bold; margin-top: 40px" id="timer3" />
                     </div>
                 </div>
@@ -145,11 +145,11 @@
             <div class="step-content">
                 <div class="row">
                     <div class='form-field' style="text-align: center">
-                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">This is the end of debate.</span>
+                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">¡CONGRATULATIONS! You have finished the debate.</span>
                         <br>
-                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Rate the debate ,and press FINISH.</span>
+                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Now it is time for you to rate the other user.</span>
                         <br>
-                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Hope to see you soon</span>
+                        <span class="flow-text" style="text-align: center; margin-top: 30px;font-weight: 500;">Hope to see you soon.</span>
                         <p class="counterW" style="text-align: center; margin-top: 30px">score: <span class="scoreNow">3</span> out of <span>5</span></p>
                         <ul class="ratingW">
                             <li class="on"><a href="javascript:void(0);">
