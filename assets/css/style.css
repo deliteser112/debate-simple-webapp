@@ -17,7 +17,7 @@
 body {
     margin: 0;
     background-repeat: no-repeat;
-    background-image: url(/assets/images/background.jpg);
+    /*background-image: url(/assets/images/background.jpg);*/
 }
 
 header,
