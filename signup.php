@@ -38,7 +38,7 @@
                             <div class="input-field col s12">
                                 <i class="material-icons prefix pf-fix">account_circle</i>
                                 <input id="surname" name="surname" type="text" class="validate" required>
-                                <label for="surname">Sure Name</label>
+                                <label for="surname">Name</label>
                             </div>
 
                             <div class="input-field col s12 inline">
@@ -56,11 +56,11 @@
                                 <input id="country" name="country" type="text" class="validate" required>
                                 <label for="country">Country</label>
                             </div>
-                            <div class="input-field col s12">
+                            <!-- <div class="input-field col s12">
                                 <i class="material-icons prefix pf-fix">layers</i>
                                 <input id="level" name="level" type="text" class="validate" required>
                                 <label for="level">Level</label>
-                            </div>
+                            </div> -->
                             <!-- <div class="file-field input-field col s12" style="width:80%; margin-left:20px;">
                                 <div class="btn">
                                     <span>File</span>
