@@ -11,7 +11,7 @@
 
     if($uid == null) {
         $sql_users = "INSERT INTO tbl_users (surname, email, password, country, level)
-        VALUES ('$surname', '$email', '$password', '$country', '$level')";
+        VALUES ('$surname', '$email', '$password', '$country', 0)";
         $conn->exec($sql_users);
 
         $level = 0;
